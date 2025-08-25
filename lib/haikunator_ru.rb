@@ -12,7 +12,7 @@ module HaikunatorRu
     def build(token_range, delimiter)
       nouns_all = nouns.values.flatten
       noun = nouns_all[random_seed % nouns_all.length]
-      gender = nouns.find{_2.include?(noun)}[0]
+      gender = nouns.find{|_gender, nouns_array| nouns_array.include?(noun)}[0]
       sections = [
         adjectives[gender][random_seed % adjectives[gender].length],
         noun,
